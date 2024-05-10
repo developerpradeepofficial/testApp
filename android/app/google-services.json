@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "103967861584",
+    "project_id": "prisonnotifyservice",
+    "storage_bucket": "prisonnotifyservice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103967861584:android:79bd98a8554380d8c39a55",
+        "android_client_info": {
+          "package_name": "com.example.flutter_webrtc_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcLn8iXM5rE-VEZTUHavwQmFTgdELdU2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103967861584:android:b968b55fe2371529c39a55",
+        "android_client_info": {
+          "package_name": "com.example.prisoner_relative"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcLn8iXM5rE-VEZTUHavwQmFTgdELdU2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103967861584:android:92525257b8f206ccc39a55",
+        "android_client_info": {
+          "package_name": "com.example.prisoner_relative"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcLn8iXM5rE-VEZTUHavwQmFTgdELdU2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
