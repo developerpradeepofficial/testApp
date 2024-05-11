@@ -6,22 +6,14 @@ import {
   notificationListener,
   requestUserPermission,
 } from "./components/getToken";
-import { firebase } from "@react-native-firebase/messaging";
-const firebaseConfig = {
-  apiKey: "AIzaSyCUPrza1_mR2PbEZunjgtvx_WGu6PDeVPE",
-  authDomain: "prisonnotifyservice.firebaseapp.com",
-  projectId: "prisonnotifyservice",
-  storageBucket: "prisonnotifyservice.appspot.com",
-  messagingSenderId: "103967861584",
-  appId: "1:103967861584:web:0494e3f82f4f3677c39a55",
-  measurementId: "G-66CNXWRJ63",
-};
+import CallHistory from "./components/CallHistory";
+import LoginPage from "./components/Login";
+
 const App: React.FC = () => {
   const [permissionsGranted, setPermissionsGranted] = useState(false);
   const [generatedToken, setGeneratedToken] = useState<string>();
-  firebase.initializeApp(firebaseConfig);
   useEffect(() => {
-    console.log("newly generated", generatedToken);
+    console.log("Newly Generated FCM Token", generatedToken);
   }, [generatedToken]);
   useEffect(() => {
     const fetchToken = async () => {
@@ -34,17 +26,23 @@ const App: React.FC = () => {
     void fetchToken();
 
     void requestUserPermission();
-    void notificationListener();
+    void notificationListener(() => {
+      console.log("Data is Comming");
+    });
   }, []);
   const requestPermissions = async () => {
     try {
       const cameraGranted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.CAMERA
       );
+
       const micGranted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.RECORD_AUDIO
       );
 
+      await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE
+      );
       if (
         cameraGranted === PermissionsAndroid.RESULTS.GRANTED &&
         micGranted === PermissionsAndroid.RESULTS.GRANTED
@@ -69,7 +67,7 @@ const App: React.FC = () => {
         <>
           {/* <Button title="Send Message" onPress={sendMessage} />
           <Button title="Connect Socket" onPress={connectSocket} /> */}
-          <CallScreen />
+          <LoginPage />
         </>
       ) : (
         <Text>Requesting permissions...</Text>

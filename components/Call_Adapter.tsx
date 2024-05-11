@@ -11,6 +11,7 @@ export interface CallAdapterOptions {
   canvasRef?: React.RefObject<HTMLCanvasElement>;
   downloadVideo?: boolean;
   recordVideo?: boolean;
+  hostURL: string;
 }
 
 export class CallAdapter {
@@ -31,7 +32,7 @@ export class CallAdapter {
   private canvasRef: React.RefObject<HTMLCanvasElement> | undefined;
   constructor(private options: CallAdapterOptions) {
     CallAdapter.signaling = new Signaling({
-      host: "3.109.188.197:8090",
+      host: options.hostURL,
       selfId: options.inmateId,
     });
     this.canvasRef = options.canvasRef;

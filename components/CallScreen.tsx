@@ -21,6 +21,7 @@ const Testing: React.FC = () => {
       canvasRef: canvasRef,
       downloadVideo: false,
       recordVideo: true,
+      hostURL: process.env.hostURL ?? "3.109.188.197:8090",
     },
     (state) => console.log("new state", state)
   );

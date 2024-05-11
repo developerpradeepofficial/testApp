@@ -8,7 +8,7 @@ const requestUserPermission = async () => {
     authStatus === messaging.AuthorizationStatus.PROVISIONAL;
 
   if (enabled) {
-    console.log("Authorization status:", authStatus);
+    console.log("FCM: Authorization status:", authStatus);
   }
 };
 
@@ -21,7 +21,7 @@ const getFcmToken = async () => {
     return null;
   }
 };
-const notificationListener = () => {
+const notificationListener = (onMessage: () => void) => {
   // Assume a message-notification contains a "type" property in the data payload of the screen to open
 
   messaging().onNotificationOpenedApp((remoteMessage) => {
@@ -46,6 +46,7 @@ const notificationListener = () => {
 
   messaging().onMessage(async (remoteMessage) => {
     Alert.alert("A new FCM message arrived!", JSON.stringify(remoteMessage));
+    onMessage();
   });
 };
 
